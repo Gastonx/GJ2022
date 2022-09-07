@@ -8,6 +8,7 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
   public Transform cam;
   public Transform point;
   public Transform perso;
+  public float vitRota = 0.1f;
 
   public float speed = 6f;
 
@@ -25,10 +26,10 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
     void Update()
     {
       if (Input.GetKey("l")){
-        sheesh = Quaternion.Euler(sheesh.eulerAngles.x,sheesh.eulerAngles.y-0.3f,sheesh.eulerAngles.z);
+        sheesh = Quaternion.Euler(sheesh.eulerAngles.x,sheesh.eulerAngles.y-vitRota,sheesh.eulerAngles.z);
       }
       if (Input.GetKey("r")){
-        sheesh = Quaternion.Euler(sheesh.eulerAngles.x,sheesh.eulerAngles.y+0.3f,sheesh.eulerAngles.z);
+        sheesh = Quaternion.Euler(sheesh.eulerAngles.x,sheesh.eulerAngles.y+vitRota,sheesh.eulerAngles.z);
       }
       if (Input.GetKey("o")){
         sheesh = Quaternion.Euler(perso.rotation.eulerAngles.x,perso.rotation.eulerAngles.y,perso.rotation.eulerAngles.z);
