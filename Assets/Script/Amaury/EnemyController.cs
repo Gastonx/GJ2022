@@ -34,6 +34,14 @@ public class EnemyController : MonoBehaviour  {
     
     void Start() {
       //  behaviorState = EnemyBehaviorState.PATROL;
+        
+        GameManager.Instance.gameState = GameState.INTRO;
+        GameManager.Instance.videoCanvas.SetActive(true);
+        GameManager.Instance.videoDisplay.SetActive(true);
+        GameManager.Instance.videoPlayer.clip = GameManager.Instance.clips[1];
+        GameManager.Instance.videoPlayer.targetTexture = GameManager.Instance.clipsTextures[1];
+        GameManager.Instance.videoPlayer.Play();
+      
         agent = GetComponent<NavMeshAgent>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
 
