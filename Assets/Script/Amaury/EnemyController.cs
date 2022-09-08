@@ -56,23 +56,9 @@ public class EnemyController : MonoBehaviour  {
             case EnemyBehaviorState.PATROL:
                 if (agent.remainingDistance < 1f || destination == Vector3.zero) 
                     RandomPosition();
-                
-                //transform.LookAt(destination);
-                Vector3 playerToEnemy = playerRef.transform.position - transform.position;
-                Vector3 normalVector = Vector2.Perpendicular(transform.position);
 
-                float side = Vector3.Dot(playerToEnemy, normalVector);
-                Debug.DrawLine(transform.position,transform.position + (transform.right * -1 * sightRange),Color.yellow);
-                
-                if (side > 0) {
-                    Vector3 sightVector = transform.right * -1 * sightRange;
-                    float angle = Vector3.Angle(playerToEnemy, sightVector);
-
-                    if (angle <= sightAngle && Vector3.Distance(transform.position, playerRef.transform.position) < sightRange) {
-                        Debug.Log("see player");
-                        behaviorState = EnemyBehaviorState.CHASE;
-                    }
-                }
+                if (IsInSight())
+                    behaviorState = EnemyBehaviorState.CHASE;
                 break;
             
             case EnemyBehaviorState.CHASE:
@@ -86,7 +72,10 @@ public class EnemyController : MonoBehaviour  {
             
             case EnemyBehaviorState.ATTACK:
 
-               // transform.LookAt(playerRef.transform);
+                if (!IsInSight())
+                    behaviorState = EnemyBehaviorState.PATROL;
+                
+                // transform.LookAt(playerRef.transform);
                destination = Vector3.zero;
                transform.LookAt(playerRef.transform.GetChild(0).GetChild(1).position);
                 if (!isMelee && !startShooting)
@@ -126,6 +115,26 @@ public class EnemyController : MonoBehaviour  {
         }
 
         StartCoroutine(LaunchBullet());
+    }
+
+    private bool IsInSight() {
+        Vector3 playerToEnemy = playerRef.transform.position - transform.position;
+        Vector3 normalVector = Vector2.Perpendicular(transform.position);
+
+        float side = Vector3.Dot(playerToEnemy, normalVector);
+        Debug.DrawLine(transform.position,transform.position + (transform.right * -1 * sightRange),Color.yellow);
+
+        if (side > 0) {
+            Vector3 sightVector = transform.right * -1 * sightRange;
+            float angle = Vector3.Angle(playerToEnemy, sightVector);
+
+            if (angle <= sightAngle && Vector3.Distance(transform.position, playerRef.transform.position) < sightRange) {
+                Debug.Log("see player");
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
