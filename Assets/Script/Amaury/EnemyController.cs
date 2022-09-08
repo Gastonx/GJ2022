@@ -31,6 +31,8 @@ public class EnemyController : MonoBehaviour  {
     public float blletReload;
 
     private bool startShooting;
+
+    public static float attackDamage;
     
     
     
@@ -50,10 +52,11 @@ public class EnemyController : MonoBehaviour  {
 
     
     void Update() {
-        if(destination != Vector3.zero)
+        if (destination != Vector3.zero) {
             agent.SetDestination(destination);
-        
-        
+            //transform.LookAt(destination);
+        }
+
         switch (behaviorState) {
             case EnemyBehaviorState.PATROL:
                 if (agent.remainingDistance < 1f || destination == Vector3.zero) 
@@ -77,7 +80,8 @@ public class EnemyController : MonoBehaviour  {
                 break;
             
             case EnemyBehaviorState.CHASE:
-                destination = playerRef.transform.position - ( playerRef.transform.position - transform.position).normalized * (isMelee ? 15 : 50);
+                //transform.LookAt(playerRef.transform);
+                destination = playerRef.transform.position - ( playerRef.transform.position - transform.position).normalized *  18;
                 
                 if (agent.remainingDistance < 1f) 
                     behaviorState = EnemyBehaviorState.ATTACK;
@@ -86,6 +90,7 @@ public class EnemyController : MonoBehaviour  {
             
             case EnemyBehaviorState.ATTACK:
 
+               // transform.LookAt(playerRef.transform);
                 if (!isMelee && !startShooting)
                 {
                     StartCoroutine(LaunchBullet());
@@ -116,10 +121,10 @@ public class EnemyController : MonoBehaviour  {
         yield return new WaitForSeconds(blletReload);
       //  Debug.Log("launch bullet");
 
-        GameObject bullet = Instantiate(bulletPrefab,transform.position,Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab,transform.GetChild(3).position,Quaternion.identity);
        
         if (bullet.TryGetComponent<Rigidbody>(out Rigidbody rb)) {
-            rb.velocity = (playerRef.transform.position - transform.position).normalized * bulletSpeed;
+            rb.velocity = (playerRef.transform.GetChild(0).position - transform.position).normalized * bulletSpeed;
         }
 
         StartCoroutine(LaunchBullet());

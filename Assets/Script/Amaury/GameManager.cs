@@ -96,4 +96,9 @@ public class GameManager : MonoBehaviour {
     public void OnQuit() {
         Application.Quit();
     }
+
+    public void OnHit()
+    {
+        Timer.instance.TakeDamage(EnemyController.attackDamage);
+    }
 }
