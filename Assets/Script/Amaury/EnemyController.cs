@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public enum EnemyBehaviorState {
     PATROL,
@@ -40,6 +41,7 @@ public class EnemyController : MonoBehaviour  {
         GameManager.Instance.videoDisplay.SetActive(true);
         GameManager.Instance.videoPlayer.clip = GameManager.Instance.clips[1];
         GameManager.Instance.videoPlayer.targetTexture = GameManager.Instance.clipsTextures[1];
+        GameManager.Instance.videoDisplay.GetComponent<RawImage>().texture = GameManager.Instance.clipsTextures[1];
         GameManager.Instance.videoPlayer.Play();
       
         agent = GetComponent<NavMeshAgent>();

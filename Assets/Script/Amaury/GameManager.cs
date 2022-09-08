@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum GameState {
     PRE_INTRO,
@@ -43,6 +44,9 @@ public class GameManager : MonoBehaviour {
     private void Start() {
         if (gameState == GameState.PRE_INTRO) {
             menuCanvas.SetActive(false);
+            videoPlayer.clip = clips[0];
+            videoPlayer.targetTexture = clipsTextures[0];
+            videoDisplay.GetComponent<RawImage>().texture = clipsTextures[0];
             videoPlayer.Play();
         }
 
@@ -78,6 +82,7 @@ public class GameManager : MonoBehaviour {
                     videoDisplay.SetActive(true);
                     videoPlayer.clip = clips[2];
                     videoPlayer.targetTexture = clipsTextures[2];
+                    videoDisplay.GetComponent<RawImage>().texture = clipsTextures[2];
                     videoPlayer.Play();
                 }
                 break;
@@ -87,8 +92,7 @@ public class GameManager : MonoBehaviour {
     }
 
 
-    public void OnLaunchGame()
-    {
+    public void OnLaunchGame() {
         SceneManager.LoadScene("AmauryScene");
     }
 
