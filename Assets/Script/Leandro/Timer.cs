@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
   public static Timer instance;
 
-  public Text timer;
+  //public Text timer;
   public float temps;
   public Slider Vie;
     // Start is called before the first frame update
@@ -25,11 +25,11 @@ public class Timer : MonoBehaviour
     void Update()
     {
       temps-=Time.deltaTime;
-      timer.text = "" + (int)temps;
+      //timer.text = "" + (int)temps;
 
       if(temps<=0){
         //gameover
-         SceneManager.LoadScene(4);
+         SceneManager.LoadScene(0);
       }
 
       Vie.value = temps;
