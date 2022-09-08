@@ -929,7 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaffdd4b6d53e4b4f85530ebf9053c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 1
+  gameState: 0
   clips:
   - {fileID: 32900000, guid: b0e951c73039bcb458eea9a629ddbf83, type: 3}
   - {fileID: 32900000, guid: 67582f95983730043a19fe872ce581a5, type: 3}
