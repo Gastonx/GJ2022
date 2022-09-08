@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8291907968629503073}
   - component: {fileID: 4953147910853983172}
   - component: {fileID: 7159010926085771022}
+  - component: {fileID: 9186180322384648350}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8671987785828413147}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -5.432, y: 0, z: -7.762}
-  m_LocalScale: {x: 3.8281143, y: 3.8281143, z: 3.8281143}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9186180322384648350
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671987785828413147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.040545158, y: 0.02700603, z: 0.07229372}
+  m_Center: {x: 0, y: 0.014157245, z: 0.004936561}

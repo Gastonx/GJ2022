@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5589269229518692840}
   - component: {fileID: 8808699288184204877}
   - component: {fileID: 6762786084446558855}
+  - component: {fileID: 5530861500034029647}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5105606900344159058}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -5.495, y: 0, z: -7.362}
-  m_LocalScale: {x: 9.03708, y: 9.03708, z: 9.03708}
+  m_LocalScale: {x: 18, y: 18, z: 18}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5530861500034029647
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105606900344159058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.055524528, y: 0.00318374, z: 0.056952436}
+  m_Center: {x: -0.0019864151, y: 0.00234894, z: 0}

@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 7593349286747153533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.37, y: 0, z: -6.28}
-  m_LocalScale: {x: 1.3989043, y: 1.3989043, z: 1.3989043}
+  m_LocalScale: {x: 2.6, y: 2.6, z: 2.6}
   m_Children:
   - {fileID: 71828681719382626}
   - {fileID: 8148222550819014135}
@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 8148222550819014135}
   - component: {fileID: 2978517883765298507}
   - component: {fileID: 188362506326842033}
+  - component: {fileID: 1419133556910357327}
   m_Layer: 0
   m_Name: legs
   m_TagString: Untagged
@@ -195,3 +196,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1419133556910357327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644097043285657012}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.59166884, y: 0.4853476, z: 0.58040696}
+  m_Center: {x: 0, y: 0.030504962, z: 0.26639023}

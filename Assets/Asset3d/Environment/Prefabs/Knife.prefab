@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8507408823724299968}
   - component: {fileID: 4737708558103304549}
   - component: {fileID: 7375576350159252911}
+  - component: {fileID: 503072262495989383}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 9033011307500801146}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -5.39, y: 0, z: -7.6}
-  m_LocalScale: {x: 7.984794, y: 7.984794, z: 7.984794}
+  m_LocalScale: {x: 16, y: 16, z: 16}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &503072262495989383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033011307500801146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017180849, y: 0.00263832, z: 0.07264663}
+  m_Center: {x: -0.00085251476, y: 2.7031127e-16, z: 0.019021465}

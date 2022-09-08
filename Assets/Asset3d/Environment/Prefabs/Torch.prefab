@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5822466602974691671}
   - component: {fileID: 7449610276215639794}
   - component: {fileID: 4649582174867962424}
+  - component: {fileID: 6397042272964478511}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6595062240025615341}
   m_LocalRotation: {x: 6.6317725e-15, y: -0.70710665, z: 6.6317703e-15, w: 0.7071069}
   m_LocalPosition: {x: -5.572, y: 1.437, z: -6.846}
-  m_LocalScale: {x: 2.0444, y: 2.0444, z: 2.0444}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6397042272964478511
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595062240025615341}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25396314, y: 0.40349668, z: 0.13203941}
+  m_Center: {x: -0.06096187, y: 0.010360359, z: 2.5107097e-29}
