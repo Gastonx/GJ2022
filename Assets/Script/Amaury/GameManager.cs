@@ -54,12 +54,9 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
         if (Input.GetKeyDown(KeyCode.R))
             gameState = GameState.OUTRO;
-        
-        
-        
+
         switch (gameState) {
             case GameState.PRE_INTRO:
                 if (lastPlaying && !videoPlayer.isPlaying) {
@@ -71,19 +68,19 @@ public class GameManager : MonoBehaviour {
             
             case GameState.INTRO:
                 if (videoPlayer.time >= clipsDuration[0] - 0.1f) {
+                    Debug.Log("enterIntro " + gameState);
                     videoDisplay.SetActive(false);
                     gameState = GameState.GAME;
+                    SceneManager.LoadScene("AmauryScene");
                 }
 
                 break;
             
             case GameState.OUTRO:
-                if (!videoPlayer.isPlaying) {
-                    videoDisplay.SetActive(true);
-                    videoPlayer.clip = clips[2];
-                    videoPlayer.targetTexture = clipsTextures[2];
-                    videoDisplay.GetComponent<RawImage>().texture = clipsTextures[2];
-                    videoPlayer.Play();
+                if (SceneManager.GetActiveScene().name != "VideoScene" && !videoPlayer.isPlaying) {
+                    Debug.Log("outro");
+                    SceneManager.LoadScene("VideoScene");
+                    VideoController.Instance.LaunchEndVideo();
                 }
                 break;
         }
@@ -93,7 +90,7 @@ public class GameManager : MonoBehaviour {
 
 
     public void OnLaunchGame() {
-        SceneManager.LoadScene("AmauryScene");
+        SceneManager.LoadScene("VideoScene");
     }
 
     public void OnQuit() {

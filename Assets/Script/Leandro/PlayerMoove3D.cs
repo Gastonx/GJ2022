@@ -16,6 +16,10 @@ public class PlayerMoove3D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if (GameManager.Instance != null && GameManager.Instance.videoPlayer.isPlaying)
+        return;
+      
+      
       rb.velocity = new Vector3(Input.GetAxis("Horizontal") * HorizontalSpeed,0, -(Input.GetAxis("Vertical") * VerticalSpeed));
     }
 }

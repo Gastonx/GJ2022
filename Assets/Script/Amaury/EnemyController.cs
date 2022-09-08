@@ -31,18 +31,16 @@ public class EnemyController : MonoBehaviour  {
     public float blletReload;
 
     private bool startShooting;
+    
+    
+    
+    
 
     
     void Start() {
       //  behaviorState = EnemyBehaviorState.PATROL;
         
-        GameManager.Instance.gameState = GameState.INTRO;
-        GameManager.Instance.videoCanvas.SetActive(true);
-        GameManager.Instance.videoDisplay.SetActive(true);
-        GameManager.Instance.videoPlayer.clip = GameManager.Instance.clips[1];
-        GameManager.Instance.videoPlayer.targetTexture = GameManager.Instance.clipsTextures[1];
-        GameManager.Instance.videoDisplay.GetComponent<RawImage>().texture = GameManager.Instance.clipsTextures[1];
-        GameManager.Instance.videoPlayer.Play();
+        
       
         agent = GetComponent<NavMeshAgent>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
@@ -52,10 +50,8 @@ public class EnemyController : MonoBehaviour  {
 
     
     void Update() {
-        
         if(destination != Vector3.zero)
             agent.SetDestination(destination);
-        
         
         
         switch (behaviorState) {
@@ -118,11 +114,10 @@ public class EnemyController : MonoBehaviour  {
 
     private IEnumerator LaunchBullet() {
         yield return new WaitForSeconds(blletReload);
-        Debug.Log("launch bullet");
+      //  Debug.Log("launch bullet");
 
         GameObject bullet = Instantiate(bulletPrefab,transform.position,Quaternion.identity);
-        Physics.IgnoreCollision(GetComponent<Collider>(),playerRef.GetComponent<Collider>());
-        
+       
         if (bullet.TryGetComponent<Rigidbody>(out Rigidbody rb)) {
             rb.velocity = (playerRef.transform.position - transform.position).normalized * bulletSpeed;
         }
