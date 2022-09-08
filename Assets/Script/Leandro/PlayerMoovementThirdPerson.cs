@@ -92,6 +92,5 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
       yield return new WaitForSeconds(seconds);
       
       animator.SetBool(animParam,false);
-      Debug.Log("entered");
     }
 }

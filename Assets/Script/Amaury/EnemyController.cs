@@ -34,11 +34,6 @@ public class EnemyController : MonoBehaviour  {
 
     public static float attackDamage;
     
-    
-    
-    
-
-    
     void Start() {
       //  behaviorState = EnemyBehaviorState.PATROL;
         
@@ -54,7 +49,7 @@ public class EnemyController : MonoBehaviour  {
     void Update() {
         if (destination != Vector3.zero) {
             agent.SetDestination(destination);
-            //transform.LookAt(destination);
+            transform.LookAt(destination);
         }
 
         switch (behaviorState) {
@@ -62,6 +57,7 @@ public class EnemyController : MonoBehaviour  {
                 if (agent.remainingDistance < 1f || destination == Vector3.zero) 
                     RandomPosition();
                 
+                //transform.LookAt(destination);
                 Vector3 playerToEnemy = playerRef.transform.position - transform.position;
                 Vector3 normalVector = Vector2.Perpendicular(transform.position);
 
@@ -91,6 +87,8 @@ public class EnemyController : MonoBehaviour  {
             case EnemyBehaviorState.ATTACK:
 
                // transform.LookAt(playerRef.transform);
+               destination = Vector3.zero;
+               transform.LookAt(playerRef.transform.GetChild(0).GetChild(1).position);
                 if (!isMelee && !startShooting)
                 {
                     StartCoroutine(LaunchBullet());
