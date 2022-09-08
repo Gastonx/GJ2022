@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerMoovementThirdPerson : MonoBehaviour
 {
+
+
   public CharacterController controller;
   public Transform cam;
   public Transform point;
@@ -45,7 +47,7 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
         {
             Shield();
         }
-        
+
       if (Input.GetKey("o") || Input.GetButton("R1")&&Input.GetButton("L1")){
         sheesh = Quaternion.Euler(perso.rotation.eulerAngles.x,perso.rotation.eulerAngles.y,perso.rotation.eulerAngles.z);
       }
@@ -64,13 +66,13 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
       point.rotation= sheesh;
     }
 
-    void Attack() 
+    void Attack()
     {
         deusVult.Invoke();
         Debug.Log("Attack");
     }
 
-    void Shield() 
+    void Shield()
     {
         Debug.Log("Defend");
     }
