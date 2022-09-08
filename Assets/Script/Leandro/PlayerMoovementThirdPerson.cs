@@ -20,6 +20,8 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
   public float turnSmoothTime = 0.1f;
   public Quaternion sheesh = Quaternion.Euler(0f,0f,0f);
 
+  public Animator animator;
+
   float turnSmoothVelocity;
     // Start is called before the first frame update
     void Start()
@@ -63,17 +65,33 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
         Vector3 moveDir = Quaternion.Euler(0f,targetAngle,0f)*Vector3.forward;
         controller.Move(moveDir.normalized*speed*Time.deltaTime);
       }
+      
       point.rotation= sheesh;
+      
+      animator.SetFloat("speed",direction.magnitude);
+      
     }
 
     void Attack()
     {
         deusVult.Invoke();
         Debug.Log("Attack");
+        animator.SetBool("isAttacking",true);
+        StartCoroutine(WaitEndAnimation("isAttacking",1f));
     }
 
     void Shield()
     {
         Debug.Log("Defend");
+        animator.SetBool("isProtecting",true);
+        StartCoroutine(WaitEndAnimation("isProtecting",1.5f));
+    }
+
+    private IEnumerator WaitEndAnimation(string animParam,float seconds)
+    {
+      yield return new WaitForSeconds(seconds);
+      
+      animator.SetBool(animParam,false);
+      Debug.Log("entered");
     }
 }
