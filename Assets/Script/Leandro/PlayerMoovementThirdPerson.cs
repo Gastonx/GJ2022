@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMoovementThirdPerson : MonoBehaviour
 {
   public CharacterController controller;
   public Transform cam;
   public Transform point;
+ 
+  public UnityEvent deusVult;
   public Transform perso;
   public float vitRota = 0.1f;
 
@@ -36,6 +39,7 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
         if (Input.GetButtonDown("AttackButton"))
         {
             Attack();
+            
         }
         if (Input.GetButtonDown("ShieldButton"))
         {
@@ -62,6 +66,7 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
 
     void Attack() 
     {
+        deusVult.Invoke();
         Debug.Log("Attack");
     }
 
