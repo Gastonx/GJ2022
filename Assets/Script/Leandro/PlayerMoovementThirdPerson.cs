@@ -25,13 +25,24 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKey("l")){
+      if(Input.GetKeyDown("l") || Input.GetButton("L1"))
+      {
         sheesh = Quaternion.Euler(sheesh.eulerAngles.x,sheesh.eulerAngles.y-vitRota,sheesh.eulerAngles.z);
       }
-      if (Input.GetKey("r")){
+      if (Input.GetKeyDown("r") || Input.GetButton("R1")){
         sheesh = Quaternion.Euler(sheesh.eulerAngles.x,sheesh.eulerAngles.y+vitRota,sheesh.eulerAngles.z);
       }
-      if (Input.GetKey("o")){
+
+        if (Input.GetButtonDown("AttackButton"))
+        {
+            Attack();
+        }
+        if (Input.GetButtonDown("ShieldButton"))
+        {
+            Shield();
+        }
+        
+      if (Input.GetKey("o") || Input.GetButton("R1")&&Input.GetButton("L1")){
         sheesh = Quaternion.Euler(perso.rotation.eulerAngles.x,perso.rotation.eulerAngles.y,perso.rotation.eulerAngles.z);
       }
       float horizontal = Input.GetAxisRaw("Horizontal");
@@ -47,5 +58,15 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
         controller.Move(moveDir.normalized*speed*Time.deltaTime);
       }
       point.rotation= sheesh;
+    }
+
+    void Attack() 
+    {
+        Debug.Log("Attack");
+    }
+
+    void Shield() 
+    {
+        Debug.Log("Defend");
     }
 }

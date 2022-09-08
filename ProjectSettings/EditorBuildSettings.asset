@@ -15,6 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/AmauryScene.unity
     guid: 117574f96dc8b984fac000c9e6685ff3
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/VideoScene.unity
     guid: 84eb61251e815b044a4e2ed7336b5e3b
+=======
+    path: Assets/Scenes/SceneLeandro.unity
+    guid: a1a86e59f3b860d4788a2f21a6a425c7
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 85ffb65e524434b41b50cbcb87f8726f
+>>>>>>> main
   m_configObjects: {}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public BoxCollider attackTrigger;
-    
+
 
     private void Update()
     {
@@ -13,6 +13,7 @@ public class Attack : MonoBehaviour
         {
             attackTrigger.enabled = true;
         }
+        
     }
 
     private void OnTriggerStay(Collider other)
