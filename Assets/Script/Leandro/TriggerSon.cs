@@ -21,7 +21,7 @@ public class TriggerSon : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
       source.Play();
-      trigger.isTrigger = false;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
 
     }
 }
