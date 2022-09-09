@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum EnemyBehaviorState {
     PATROL,
@@ -33,6 +35,7 @@ public class EnemyController : MonoBehaviour  {
     private bool startShooting;
 
     public static float attackDamage;
+    public float heal;
     
     void Start() {
       //  behaviorState = EnemyBehaviorState.PATROL;
@@ -137,4 +140,7 @@ public class EnemyController : MonoBehaviour  {
         return false;
     }
 
+    private void OnDestroy() {
+        Timer.instance.Heal(heal);
+    }
 }
