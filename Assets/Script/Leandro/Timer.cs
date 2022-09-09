@@ -40,6 +40,7 @@ public class Timer : MonoBehaviour
     }
 
     public void Heal(float heal){
+      Porte.instance.Objectif -= 1;
       temps+=heal;
     }
 
