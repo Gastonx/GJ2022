@@ -34,21 +34,21 @@ public class EnemyController : MonoBehaviour  {
 
     private bool startShooting;
 
-    public static float attackDamage;
+    public float attackDamage = 2.5f;
     public float heal;
-    
+
     void Start() {
       //  behaviorState = EnemyBehaviorState.PATROL;
-        
-        
-      
+
+
+
         agent = GetComponent<NavMeshAgent>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
 
         //RandomPosition();
     }
 
-    
+
     void Update() {
         if (destination != Vector3.zero) {
             agent.SetDestination(destination);
@@ -57,27 +57,27 @@ public class EnemyController : MonoBehaviour  {
 
         switch (behaviorState) {
             case EnemyBehaviorState.PATROL:
-                if (agent.remainingDistance < 1f || destination == Vector3.zero) 
+                if (agent.remainingDistance < 1f || destination == Vector3.zero)
                     RandomPosition();
 
                 if (IsInSight())
                     behaviorState = EnemyBehaviorState.CHASE;
                 break;
-            
+
             case EnemyBehaviorState.CHASE:
                 //transform.LookAt(playerRef.transform);
                 destination = playerRef.transform.position - ( playerRef.transform.position - transform.position).normalized *  18;
-                
-                if (agent.remainingDistance < 1f) 
+
+                if (agent.remainingDistance < 1f)
                     behaviorState = EnemyBehaviorState.ATTACK;
-                
+
                 break;
-            
+
             case EnemyBehaviorState.ATTACK:
 
                 if (!IsInSight())
                     behaviorState = EnemyBehaviorState.PATROL;
-                
+
                 // transform.LookAt(playerRef.transform);
                destination = Vector3.zero;
                transform.LookAt(playerRef.transform.GetChild(0).GetChild(1).position);
@@ -86,7 +86,7 @@ public class EnemyController : MonoBehaviour  {
                     StartCoroutine(LaunchBullet());
                     startShooting = true;
                 }
-                
+
                 Debug.DrawLine(transform.position,transform.position + (playerRef.transform.position - transform.position).normalized * bulletSpeed,Color.red);
                 break;
         }
@@ -97,10 +97,10 @@ public class EnemyController : MonoBehaviour  {
 
         if (patrolPoints.Length == 0)
             return;
-        
+
         int minX = Mathf.Min((int)patrolPoints[0].position.x,(int)patrolPoints[1].position.x);
         int maxX = Mathf.Max((int)patrolPoints[0].position.x, (int)patrolPoints[1].position.x);
-         
+
         int minZ = Mathf.Min((int)patrolPoints[0].position.z,(int)patrolPoints[2].position.z);
         int maxZ = Mathf.Max((int)patrolPoints[0].position.z, (int)patrolPoints[2].position.z);
 
@@ -115,7 +115,7 @@ public class EnemyController : MonoBehaviour  {
       //  Debug.Log("launch bullet");
 
         GameObject bullet = Instantiate(bulletPrefab,transform.GetChild(3).position,Quaternion.identity);
-       
+
         if (bullet.TryGetComponent<Rigidbody>(out Rigidbody rb)) {
             rb.velocity = (playerRef.transform.GetChild(0).position - transform.position).normalized * bulletSpeed;
         }
@@ -145,7 +145,7 @@ public class EnemyController : MonoBehaviour  {
     private void OnDestroy() {
         Timer.instance.Heal(heal);
     }
-    
+
     public void OnHitPlayer()
     {
         Timer.instance.TakeDamage(attackDamage);

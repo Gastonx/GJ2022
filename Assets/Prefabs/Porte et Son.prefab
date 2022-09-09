@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4030309038788256232}
   - component: {fileID: 4030309038788256233}
   - component: {fileID: 4030309038788256234}
-  - component: {fileID: 4030309038788256235}
   m_Layer: 0
   m_Name: Porte
   m_TagString: Untagged
@@ -113,21 +112,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4030309038788256235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3268390147334242863, guid: 0d7499e99d2898d4993e4c7b598ae0f2, type: 3}
-  m_PrefabInstance: {fileID: 1924496309365985848}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4030309038788256212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe989cffa4f96f24da8eb0b91866e991, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Objectif: 2
-  porte: {fileID: 4030309038788256212}
-  secret: {fileID: 4030309040264430904}
 --- !u!1 &4030309040264430905
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,5 +299,6 @@ PrefabInstance:
       propertyPath: secret
       value: 
       objectReference: {fileID: 4030309040264430904}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0d7499e99d2898d4993e4c7b598ae0f2, type: 3}
