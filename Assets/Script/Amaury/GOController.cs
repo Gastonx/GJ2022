@@ -17,14 +17,14 @@ public class GOController : MonoBehaviour {
     public Text[] actionTexts;
 
     void Update() {
-        if (Input.GetKeyDown(down)) {
+        if (Input.GetAxis("Vertical") < 0) {
             if (buttonIndex < (maxButtonIndex - 1)) {
                 buttonIndex++;
                 downEvent?.Invoke();
             }
         }
 
-        if (Input.GetKeyDown(up)) {
+        if (Input.GetAxis("Vertical") > 0) {
             if (buttonIndex > 0) {
                 buttonIndex--;
                 upEvent?.Invoke();
