@@ -15,6 +15,10 @@ public enum EnemyBehaviorState {
 
 
 public class EnemyController : MonoBehaviour  {
+    
+    
+    public static EnemyController Instance { get; private set;  }
+    
     public EnemyBehaviorState behaviorState;
     private NavMeshAgent agent;
 
@@ -37,6 +41,11 @@ public class EnemyController : MonoBehaviour  {
     public float attackDamage = 2.5f;
     public float heal;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start() {
       //  behaviorState = EnemyBehaviorState.PATROL;
 
@@ -57,16 +66,16 @@ public class EnemyController : MonoBehaviour  {
 
         switch (behaviorState) {
             case EnemyBehaviorState.PATROL:
-                if (agent.remainingDistance < 1f || destination == Vector3.zero)
-                    RandomPosition();
+              //  if (agent.remainingDistance < 1f || destination == Vector3.zero)
+                   // RandomPosition();
 
                 if (IsInSight())
-                    behaviorState = EnemyBehaviorState.CHASE;
+                    behaviorState = EnemyBehaviorState.ATTACK;
                 break;
 
             case EnemyBehaviorState.CHASE:
                 //transform.LookAt(playerRef.transform);
-                destination = playerRef.transform.position - ( playerRef.transform.position - transform.position).normalized *  18;
+                destination = playerRef.transform.position - ( playerRef.transform.GetChild(0).transform.position - transform.position).normalized *  18;
 
                 if (agent.remainingDistance < 1f)
                     behaviorState = EnemyBehaviorState.ATTACK;
@@ -75,8 +84,12 @@ public class EnemyController : MonoBehaviour  {
 
             case EnemyBehaviorState.ATTACK:
 
+                
+                Debug.Log("value " + IsInSight());
                 if (!IsInSight())
+                {
                     behaviorState = EnemyBehaviorState.PATROL;
+                }
 
                 // transform.LookAt(playerRef.transform);
                destination = Vector3.zero;
@@ -124,34 +137,37 @@ public class EnemyController : MonoBehaviour  {
             rb.velocity = (playerRef.transform.GetChild(0).position - transform.position).normalized * bulletSpeed;
         }
 
+        if (behaviorState == EnemyBehaviorState.PATROL)
+            yield break;
+
         StartCoroutine(LaunchBullet());
     }
 
     private bool IsInSight() {
-        Vector3 playerToEnemy = playerRef.transform.position - transform.position;
+      /*  Vector3 playerToEnemy =/* playerRef.transform.GetChild(0).position -  transform.position - playerRef.transform.GetChild(0).position;
         Vector3 normalVector = Vector2.Perpendicular(transform.position);
-
+        
+       
         float side = Vector3.Dot(playerToEnemy, normalVector);
         Debug.DrawLine(transform.position,transform.position + (transform.right * -1 * sightRange),Color.yellow);
 
         if (side > 0) {
+            Debug.Log("side");
             Vector3 sightVector = transform.right * -1 * sightRange;
             float angle = Vector3.Angle(playerToEnemy, sightVector);
 
-            if (angle <= sightAngle && Vector3.Distance(transform.position, playerRef.transform.position) < sightRange) {
+            if (angle <= sightAngle && Vector3.Distance(transform.position, playerRef.transform.GetChild(0).position) < sightRange) {
+                Debug.Log("JE TE VOIS");
                 return true;
             }
         }
-
-        return false;
+*/
+        return Vector3.Distance(playerRef.transform.GetChild(0).position,transform.position) <= sightRange;
     }
 
     private void OnDestroy() {
         Timer.instance.Heal(heal);
     }
 
-    public void OnHitPlayer()
-    {
-        Timer.instance.TakeDamage(attackDamage);
-    }
+   
 }

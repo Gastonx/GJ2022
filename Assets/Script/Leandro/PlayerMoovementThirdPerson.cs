@@ -79,6 +79,12 @@ public class PlayerMoovementThirdPerson : MonoBehaviour
         animator.SetBool("isAttacking",true);
         StartCoroutine(WaitEndAnimation("isAttacking",1f));
     }
+    
+    public void OnHitPlayer()
+    {
+      Debug.Log("hit player");
+      Timer.instance.TakeDamage(EnemyController.Instance.attackDamage);
+    }
 
     void Shield()
     {
