@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviorState: 0
   patrolPoints: []
-  sightRange: 0
+  sightRange: 20
   sightAngle: 90
   destination: {x: 0, y: 0, z: 0}
   isMelee: 0

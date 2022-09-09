@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour
 
       if(temps<=0){
         //gameover
-         SceneManager.LoadScene(0);
+         SceneManager.LoadScene("GameOver");
       }
 
       Vie.value = temps;

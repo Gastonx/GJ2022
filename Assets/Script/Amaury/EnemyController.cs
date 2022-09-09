@@ -64,6 +64,9 @@ public class EnemyController : MonoBehaviour  {
             transform.LookAt(destination);
         }
 
+        if (Input.GetKeyDown((KeyCode.R)))
+            GameManager.Instance.gameState = GameState.OUTRO;
+
         switch (behaviorState) {
             case EnemyBehaviorState.PATROL:
               //  if (agent.remainingDistance < 1f || destination == Vector3.zero)
@@ -93,7 +96,8 @@ public class EnemyController : MonoBehaviour  {
 
                 // transform.LookAt(playerRef.transform);
                destination = Vector3.zero;
-               transform.LookAt(playerRef.transform.GetChild(0).GetChild(1).position);
+               if(playerRef.transform.childCount > 0 && playerRef.transform.GetChild(0).childCount > 1)
+                   transform.LookAt(playerRef.transform.GetChild(0).GetChild(1).position);
                 if (!isMelee && !startShooting)
                 {
                     StartCoroutine(LaunchBullet());

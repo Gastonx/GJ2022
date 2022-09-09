@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour {
 
     public VideoPlayer videoPlayer;
     public GameObject videoDisplay;
+    
+    public VideoPlayer videoPlayerOutro;
+    public GameObject videoDisplayOutro;
 
     public GameObject videoCanvas;
     public GameObject menuCanvas;
