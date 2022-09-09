@@ -2077,8 +2077,8 @@ MonoBehaviour:
   - {fileID: 8400000, guid: 19419abdb34b9d04b9e126fa4fa93973, type: 2}
   - {fileID: 8400000, guid: 2d4393eebbd298f4b8d4c79881a8d432, type: 2}
   clipsDuration:
-  - 15
-  - 15
+  - 12
+  - 12
   videoPlayer: {fileID: 1128996659}
   videoDisplay: {fileID: 787017022}
   videoCanvas: {fileID: 685175626}
