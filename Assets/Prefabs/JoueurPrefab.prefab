@@ -941,6 +941,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4737016970690743175}
   - component: {fileID: 1127246703344917463}
+  - component: {fileID: 9019839720228749867}
+  - component: {fileID: 6066247032086688668}
   m_Layer: 0
   m_Name: Sceptre
   m_TagString: Untagged
@@ -1019,6 +1021,31 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00031693332, y: 0.021410085, z: 0.0008430755}
     m_Extent: {x: 0.0021526297, y: 0.013988521, z: 0.0027650045}
   m_DirtyAABB: 0
+--- !u!65 &9019839720228749867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482583078057249674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00841572, y: 0.028653247, z: 0.0067786574}
+  m_Center: {x: 0.00865809, y: 0.0098097045, z: -0.0013697897}
+--- !u!114 &6066247032086688668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482583078057249674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47839a0119007340a95ee87f40d8fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5760784750825438332
 GameObject:
   m_ObjectHideFlags: 0
