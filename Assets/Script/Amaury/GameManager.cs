@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour {
             
             case GameState.INTRO:
                 if (videoPlayer.time >= clipsDuration[0] - 0.1f) {
-                    Debug.Log("enterIntro " + gameState);
                     videoDisplay.SetActive(false);
                     gameState = GameState.GAME;
                     SceneManager.LoadScene("LD_Speed01");
@@ -78,7 +77,6 @@ public class GameManager : MonoBehaviour {
             
             case GameState.OUTRO:
                 if (SceneManager.GetActiveScene().name != "VideoScene" && !videoPlayer.isPlaying) {
-                    Debug.Log("outro");
                     SceneManager.LoadScene("VideoScene");
                     VideoController.Instance.LaunchEndVideo();
                 }

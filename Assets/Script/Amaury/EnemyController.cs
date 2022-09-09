@@ -94,7 +94,6 @@ public class EnemyController : MonoBehaviour  {
     }
 
     private void RandomPosition() {
-        Debug.Log("generate next destination");
 
         if (patrolPoints.Length == 0)
             return;
@@ -136,7 +135,6 @@ public class EnemyController : MonoBehaviour  {
             float angle = Vector3.Angle(playerToEnemy, sightVector);
 
             if (angle <= sightAngle && Vector3.Distance(transform.position, playerRef.transform.position) < sightRange) {
-                Debug.Log("see player");
                 return true;
             }
         }
@@ -145,7 +143,6 @@ public class EnemyController : MonoBehaviour  {
     }
 
     private void OnDestroy() {
-        Debug.Log("die");
         Timer.instance.Heal(heal);
     }
     

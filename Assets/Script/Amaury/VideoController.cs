@@ -40,7 +40,6 @@ public class VideoController : MonoBehaviour
     public void LaunchEndVideo()
     {
         if (!GameManager.Instance.videoPlayer.isPlaying) {
-            Debug.Log("start");
             GameManager.Instance.videoDisplay.SetActive(true);
             GameManager.Instance.videoPlayer.clip = GameManager.Instance.clips[2];
             GameManager.Instance.videoPlayer.targetTexture = GameManager.Instance.clipsTextures[2];
