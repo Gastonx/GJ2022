@@ -7,6 +7,8 @@ public class Porte : MonoBehaviour
   public static Porte instance;
   public int Objectif;
   public GameObject porte;
+
+  public AudioSource secret;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class Porte : MonoBehaviour
     void Update()
     {
       if(Objectif==0){
+        secret.Play();
         Destroy(porte);
       }
     }
