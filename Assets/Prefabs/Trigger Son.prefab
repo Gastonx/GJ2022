@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 6982455474560285625}
-  ding: {fileID: 8300000, guid: 6e06341a1b8a8a047ae045e49e0c874d, type: 3}
+  trigger: {fileID: 6982455473939160869}
 --- !u!65 &6982455473939160869
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class TriggerSon : MonoBehaviour
 {
   public AudioSource source;
-  public AudioClip ding;
+  public BoxCollider trigger;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,8 @@ public class TriggerSon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-      source.clip = ding;
       source.Play();
+      trigger.isTrigger = false;
+
     }
 }
