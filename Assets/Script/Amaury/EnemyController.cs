@@ -95,6 +95,10 @@ public class EnemyController : MonoBehaviour  {
 
     private void RandomPosition() {
         Debug.Log("generate next destination");
+
+        if (patrolPoints.Length == 0)
+            return;
+        
         int minX = Mathf.Min((int)patrolPoints[0].position.x,(int)patrolPoints[1].position.x);
         int maxX = Mathf.Max((int)patrolPoints[0].position.x, (int)patrolPoints[1].position.x);
          
