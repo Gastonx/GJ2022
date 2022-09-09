@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour {
                     Debug.Log("enterIntro " + gameState);
                     videoDisplay.SetActive(false);
                     gameState = GameState.GAME;
-                    SceneManager.LoadScene("AmauryScene");
+                    SceneManager.LoadScene("LD_Speed01");
                 }
 
                 break;
