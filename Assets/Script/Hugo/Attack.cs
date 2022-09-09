@@ -7,8 +7,10 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag== "Ennemie")
+        Debug.Log("touch");
+        if (other.tag== "Ennemi")
         {
+            Debug.Log("touch");
             Destroy(other.gameObject);
         }
     }

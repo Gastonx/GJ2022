@@ -141,6 +141,12 @@ public class EnemyController : MonoBehaviour  {
     }
 
     private void OnDestroy() {
+        Debug.Log("die");
         Timer.instance.Heal(heal);
+    }
+    
+    public void OnHitPlayer()
+    {
+        Timer.instance.TakeDamage(attackDamage);
     }
 }
