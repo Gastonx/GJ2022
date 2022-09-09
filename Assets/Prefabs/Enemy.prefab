@@ -202,10 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviorState: 0
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  patrolPoints: []
   sightRange: 0
   sightAngle: 90
   destination: {x: 0, y: 0, z: 0}
